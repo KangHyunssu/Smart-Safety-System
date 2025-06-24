@@ -117,7 +117,7 @@ SmartCarSystem/
 **클론 받기**
 
 bash
-git clone https://github.com/KangHyunssu/SmartCarSystem.git
+git clone https://github.com/KangHyunssu/Smart-Safety-System.git
 
 cd SmartCarSystem
 
