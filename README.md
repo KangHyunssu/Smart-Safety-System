@@ -150,6 +150,18 @@ YOLO 기반 객체 인식 추가로 더 정밀한 졸음 감지
 - 관리자 페이지
 <img width="1280" alt="관리자페이지 실행화면" src="https://github.com/user-attachments/assets/b804ed37-22e6-47cb-b0f3-050d765baa34" />
 
+- 음주측정기
+  
+![image](https://github.com/user-attachments/assets/db86ba31-0703-4036-bedb-09dbb0749e31) ![image](https://github.com/user-attachments/assets/52b7a33b-865c-472d-8c54-de62ed84164d)
+
+- 젯슨나노 카메라
+
+  ![image](https://github.com/user-attachments/assets/973c49d5-690f-4611-82ca-8b10452f7a62) ![image](https://github.com/user-attachments/assets/c4f26d28-1b4b-4ea9-bb1f-e4d2f436fc72)
+
+  
+
+
+
 
 
 
