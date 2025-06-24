@@ -118,6 +118,7 @@ SmartCarSystem/
 
 bash
 git clone https://github.com/KangHyunssu/SmartCarSystem.git
+
 cd SmartCarSystem
 
 pip install -r requirements.txt
