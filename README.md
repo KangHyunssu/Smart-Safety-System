@@ -147,6 +147,9 @@ YOLO 기반 객체 인식 추가로 더 정밀한 졸음 감지
 
 ## 📸 시연 이미지
 
+- 관리자 페이지
+<img width="1280" alt="관리자페이지 실행화면" src="https://github.com/user-attachments/assets/b804ed37-22e6-47cb-b0f3-050d765baa34" />
+
 
 
 
