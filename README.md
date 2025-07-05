@@ -90,6 +90,71 @@ SmartCarSystem/
 └── README.md
 ```
 
+## 🔌 전체 회로 구성도 및 모듈별 회로
+
+# 1. 📡 전체 시스템 연결 흐름도
+지능형 운전자 상태 인식 시스템의 전체 구성 흐름은 다음과 같이 구성됩니다.
+![image](https://github.com/user-attachments/assets/6081cfd6-3273-40e5-8391-8e752b73b5f9)
+
+
+- Arduino, Jetson Nano, Raspberry Pi, Windows 시뮬레이터, AWS 서버가 MQTT로 연결되어 있습니다.
+
+- 각 장치는 역할에 따라 센서 입력 및 제어 출력을 수행합니다.
+
+# 2. 📷 Jetson Nano + IR 카메라 회로도 (졸음 감지/얼굴 인증)
+
+![image](https://github.com/user-attachments/assets/607db7ec-5188-4c82-b8fe-dd5648f4b3aa)
+
+
+- IR 적외선 카메라를 CSI 포트 또는 USB 포트로 연결
+
+- 5V 전원 공급, USB 허브를 통해 안정적인 연결 유지
+
+- Jetson Nano는 OpenCV 기반으로 눈, 고개 방향을 분석
+
+
+# 3. 🍺 Arduino 음주측정기 회로도
+
+![image](https://github.com/user-attachments/assets/56081275-b69e-4a5e-a19a-10ddd7a6e97e)
+
+- MQ-3 알코올 센서 + 압력 센서를 통해 일정한 공기량이 감지되어야만 측정 가능
+
+- 측정값이 임계값 이상이면 MQTT를 통해 "ENGINE_OFF" 전송
+
+- Serial 통신으로 Raspberry Pi 혹은 EC2에 직접 연결도 가능
+
+
+# 4. 💡 Raspberry Pi LCD + LED + Buzzer 회로도
+
+![image](https://github.com/user-attachments/assets/58077754-6fe1-4b3e-9e3c-6d7566c72ecf)
+
+- GPIO를 이용하여 LED, 부저를 제어
+
+- LCD 화면에 상태 텍스트 표시
+
+- MQTT 수신에 따라 상태 갱신 및 시각/청각 경고 제공
+
+
+# 5. ☁️ AWS EC2 서버 회로 흐름도 (중앙 제어 허브)
+
+AWS EC2는 MQTT 브로커 (Mosquitto)를 구동하는 중앙 통신 허브
+
+![image](https://github.com/user-attachments/assets/4b5acf8a-21d0-4ade-8554-2b86efda810b)
+
+
+- 각 장치(Arduino, Jetson Nano, Raspberry Pi, Windows PC)는 모두 EC2와 연결되어 메시지를 송수신
+
+- 음주 상태, 얼굴 인증, 졸음 감지 결과 → 수신
+
+- 조향 장치에 "ENGINE_ON"/"ENGINE_OFF" 명령 → 송신
+
+- 관리자 페이지에서 긴급 제어 신호 수신 및 중계
+
+
+
+
+
+
 
 ## ⚙️ 시스템 흐름 요약
 
@@ -146,17 +211,8 @@ YOLO 기반 객체 인식 추가로 더 정밀한 졸음 감지
 
 
 ## 📸 시연 이미지
+- ![image](https://github.com/user-attachments/assets/2773a3b7-1c61-48ac-9402-3df6e349d909)
 
-- 관리자 페이지
-<img width="1280" alt="관리자페이지 실행화면" src="https://github.com/user-attachments/assets/b804ed37-22e6-47cb-b0f3-050d765baa34" />
-
-- 음주측정기
-  
-![image](https://github.com/user-attachments/assets/db86ba31-0703-4036-bedb-09dbb0749e31) ![image](https://github.com/user-attachments/assets/52b7a33b-865c-472d-8c54-de62ed84164d)
-
-- 젯슨나노 카메라
-
-  ![image](https://github.com/user-attachments/assets/973c49d5-690f-4611-82ca-8b10452f7a62) ![image](https://github.com/user-attachments/assets/c4f26d28-1b4b-4ea9-bb1f-e4d2f436fc72)
 
   
 
